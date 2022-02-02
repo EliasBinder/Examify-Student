@@ -1,15 +1,16 @@
 var sidenav;
 
 let connection = {
-    "url": "http://127.0.0.1:8080/api/"
-}
-let profileInfo = {
-
+    "url": "http://localhost:8080/api/"
 }
 
-let offlineBridge = {
-
+let credentials = {
+    name: 'Elias Binder',
+    id: 19269,
+    ref: 'uhx-5tr'
 }
+
+let offlineBridge = {}
 
 function render(path, containerID) {
     window.intercom.receive('reqfile', (json) => {
@@ -27,6 +28,7 @@ function render(path, containerID) {
         'path': path
     });
 }
+render('waitingroom', 'main');
 
 
 let domLoadListenerCache = [];
@@ -142,21 +144,6 @@ function apiCallSync(method, content = null, path) {
             request.send();
     });
 }
-
-function getProfilePackage() {
-    apiCall('GET', null, 'profile/package', false, (success, json) => {
-        if (success) {
-            profileInfo = json;
-            render('examlist', 'main');
-        }else{
-            render('offline', 'main');
-        }
-    });
-}
-
-document.addEventListener("DOMContentLoaded", function(event) {
-    getProfilePackage();
-});
 
 function setWindowEvent(event, callbackFunctionName) {
     return new Promise(resolve => {
