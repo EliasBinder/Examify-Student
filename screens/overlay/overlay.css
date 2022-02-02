@@ -1,0 +1,127 @@
+.bigwrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+
+.nav-search-wrapper{
+    position: absolute;
+    width: 100vw;
+    height: 56px;
+}
+
+.dropdown-aligned li>* {
+    display: flex;
+    align-items: center;
+}
+.dropdown-aligned {
+    width: auto !important;
+}
+/* optional */
+.dropdown-aligned a> i {
+    margin-right: 16px;
+}
+
+/* label focus color */
+.input-field input:focus + label {
+    color: #64b5f6 !important; /* blue lighten-2*/
+}
+/* label underline focus color */
+.row .input-field input:focus {
+    border-bottom: 1px solid #64b5f6 !important; /* blue lighten-2*/
+    box-shadow: 0 1px 0 0 #64b5f6 !important; /* blue lighten-2*/
+}
+/* invalid color */
+.input-field input[type=text],
+.input-field input[type=number],
+.input-field input[type=password]{
+    border-bottom: 1px solid #64b5f6 !important; /* blue lighten-2*/
+    box-shadow: 0 1px 0 0 #64b5f6 !important; /* blue lighten-2*/
+}
+
+.card-title-overflow{
+    max-width: calc(100% - 40px);
+    width: fit-content;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.text-outline{
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.container-fillHeight{
+    min-height: calc(100vh - 80px);
+}
+
+.secondary-content-collapsible{
+    position: absolute;
+    right: 10px;
+    z-index: 999;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #64b5f6;
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #2196f3;
+}
+
+.transparent-overlay{
+    position: absolute;
+    z-index: 999999000;
+    background-color: #ffffff;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    -webkit-backdrop-filter: blur(10px) opacity(0.8);
+    -webkit-filter: blur(4px) opacity(0.8);
+}
+
+.transparent-overlay-foreground{
+    position: absolute;
+    z-index: 999999999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-backdrop-filter: initial;
+    -webkit-filter: initial;
+}
+
+.middle-center-absolute{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toast-stay{
+    display: block !important;
+}
+
+.ql-textGap:after {
+    content: "[T]";
+}
+
+.dragndrop{
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 65px;
+}
+
+.dragndrop_ondrag{
+    background-color: #90caf9;
+    transition: background-color .6s linear;
+}
