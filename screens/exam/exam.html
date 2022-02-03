@@ -41,6 +41,19 @@
     </div>
 
     <div class="row" style="margin-top: 30px">
+        <div id="question_attachments" class="collection z-depth-1" style="border: 1px solid #ccc">
+
+        </div>
+    </div>
+    <template id="template_question_attachment">
+        <a href="javascript:previewAttachment('%id%')" class="collection-item black-text" attachmentId="%id%">
+            <i class="material-icons left blue-text lighten-2">%type%</i>
+            %name%
+            <i onclick="downloadAttachment('%id%', event)" class="material-icons secondary-content blue-text lighten-2">file_download</i>
+        </a>
+    </template>
+
+    <div class="row" style="margin-top: 30px">
         <div class="divider"></div>
     </div>
 

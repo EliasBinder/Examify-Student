@@ -21,4 +21,5 @@ function initQuestionQuill() {
 }
 initQuestionQuill();
 
+//{import exam/exam_Attachments.js}
 //{import exam/exam_Answers.js}
