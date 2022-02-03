@@ -1,0 +1,108 @@
+<nav>
+    <div class="nav-wrapper blue lighten-2">
+        <a href="#" data-target="slide-out" class="sidenav-trigger left show-on-large"><i class="material-icons">menu</i></a>
+        <a href="#!" id="exam_title" class="brand-logo center">IDB Exam Demo</a>
+    </div>
+</nav>
+
+<ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+        <div class="background">
+            <img src="../../resources/images/sidenav_background.jpg" width="300">
+        </div>
+        <a href="#!"><img class="circle" id="navigation_profileImg" style="border: 1px solid #fff" src="../../resources/images/profile_default.svg"></a>
+        <a href="#!"><span class="white-text name text-outline" id="navigation_name">Elias Binder</span></a>
+        <a href="#!"><span class="white-text email text-outline" id="navigation_id">19269</span></a>
+    </div></li>
+    <li><a class="subheader">Questions</a></li>
+    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 1</a></li>
+    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 2</a></li>
+    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 3</a></li>
+    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 4</a></li>
+    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 5</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="waves-effect" href=""><i class="material-icons">send</i>Submit</a></li>
+</ul>
+
+<div class="container">
+
+    <div class="row" style="margin-top: 10px">
+        <a href="#" class="btn waves-effect waves-light blue lighten-2 left disabled"><i class="material-icons left">arrow_back_ios</i>Previous Question</a>
+        <a href="#" class="btn waves-effect waves-light blue lighten-2 right"><i class="material-icons left">arrow_forward_ios</i>Next Question</a>
+        <a href="#" class="btn waves-effect waves-light blue lighten-2 right" style="display: none"><i class="material-icons left">send</i>Submit</a>
+    </div>
+
+    <div class="row center-align" style="margin-top: 20px">
+        <h4>Question 1</h4>
+    </div>
+
+    <div class="row" style="margin-top: 20px">
+        <div id="quill_question"></div>
+    </div>
+
+    <div class="row" style="margin-top: 30px">
+        <div class="divider"></div>
+    </div>
+
+    <div class="row" id="answers">
+
+    </div>
+
+    <template id="template_answer_text">
+        <div class="row" style="margin-top: 40px">
+            <div class="z-depth-1">
+                <div id="answer_%id%_quill"></div>
+            </div>
+            <span class="right" style="margin-top: 10px">Words: 0 / 180</span>
+        </div>
+    </template>
+
+    <template id="template_answer_cloze">
+        <div class="row" style="margin-top: 40px">
+            <div class="z-depth-1">
+                <div id="answer_%id%_quill"></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="template_answer_multipleChoice">
+        <div class="row" id="answer_%id%_container" style="margin-top: 40px">
+
+        </div>
+    </template>
+    <template id="template_answer_multipleChoice_option">
+        <div class="row" style="margin-top: 8px">
+            <label>
+                <input type="checkbox" id="answer_%id%_option" class="filled-in checkbox-blue" />
+                <span>%optionText%</span>
+            </label>
+        </div>
+    </template>
+
+    <template id="template_answer_audioRecording">
+        <div class="row valign-wrapper" style="margin-top: 40px;">
+            <a href="#" class="btn waves-effect waves-light blue lighten-2 right center"><i class="material-icons left">mic</i>Start Recording</a>
+            <a href="#" class="btn waves-effect waves-light blue lighten-2 right center" style="display: none"><i class="material-icons left">mic</i>Stop Recording</a>
+            <span class="center" style="margin-left: 10px">1:33 / 2:00</span>
+            <i class="material-icons left blue-text" style="margin-left: 20px; cursor: pointer">play_arrow</i>
+            <i class="material-icons left red-text" style="margin-left: 2px; cursor: pointer">delete</i>
+        </div>
+    </template>
+
+    <template id="template_answer_fileUpload">
+        <div class="row" style="margin-top: 40px">
+            <div class="file-field input-field">
+                <div class="btn blue lighten-2">
+                    <span>File</span>
+                    <input type="file" id="answer_%id%_files" %multiple%>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="%placeholder%">
+                </div>
+            </div>
+            <div class="row">
+                <span class="right">Max size per file: 20MB</span>
+            </div>
+        </div>
+    </template>
+</div>

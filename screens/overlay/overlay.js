@@ -28,7 +28,7 @@ function render(path, containerID) {
         'path': path
     });
 }
-render('waitingroom', 'main');
+render('exam', 'main');
 
 
 let domLoadListenerCache = [];
