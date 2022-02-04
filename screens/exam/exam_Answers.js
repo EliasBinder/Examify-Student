@@ -5,6 +5,7 @@ AnswersCache = {};
 
 function clearAnswers() {
     document.getElementById('answers').innerHTML = '';
+    mediaRecorder = {};
 }
 
 //{import exam/exam_Answers_Text.js}

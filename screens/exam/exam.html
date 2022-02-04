@@ -89,11 +89,12 @@
 
     <template id="template_answer_audioRecording">
         <div class="row valign-wrapper" style="margin-top: 40px;">
-            <a href="#" class="btn waves-effect waves-light blue lighten-2 right center"><i class="material-icons left">mic</i>Start Recording</a>
-            <a href="#" class="btn waves-effect waves-light blue lighten-2 right center" style="display: none"><i class="material-icons left">mic</i>Stop Recording</a>
-            <span class="center" style="margin-left: 10px">1:33 / 2:00</span>
-            <i class="material-icons left blue-text" style="margin-left: 20px; cursor: pointer">play_arrow</i>
-            <i class="material-icons left red-text" style="margin-left: 2px; cursor: pointer">delete</i>
+            <audio id="answer_%id%_audio" style="display: none"></audio>
+            <a id="answer_%id%_startRec" href="javascript:startAudioRecording('%id%')" class="btn waves-effect waves-light blue lighten-2 right center"><i class="material-icons left">mic</i>Start Recording</a>
+            <a id="answer_%id%_stopRec" href="javascript:stopAudioRecording('%id%')" class="btn waves-effect waves-light blue lighten-2 right center" style="display: none"><i class="material-icons left">mic_off</i>Stop Recording</a>
+            <!--<span id="answer_%id%_counter" class="center" style="margin-left: 10px">1:33 / 2:00</span>-->
+            <i id="answer_%id%_play" onclick="playAudioRecording('%id%')" class="material-icons left blue-text" style="margin-left: 20px; cursor: pointer">play_arrow</i>
+            <i onclick="deleteAudioRecording('%id%')" class="material-icons left red-text" style="margin-left: 2px; cursor: pointer">delete</i>
         </div>
     </template>
 
