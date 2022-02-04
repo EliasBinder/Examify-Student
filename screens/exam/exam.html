@@ -1,7 +1,7 @@
 <nav>
     <div class="nav-wrapper blue lighten-2">
         <a href="#" data-target="slide-out" class="sidenav-trigger left show-on-large"><i class="material-icons">menu</i></a>
-        <a href="#!" id="exam_title" class="brand-logo center">IDB Exam Demo</a>
+        <a href="#!" id="exam_title" class="brand-logo center"></a>
     </div>
 </nav>
 
@@ -15,25 +15,20 @@
         <a href="#!"><span class="white-text email text-outline" id="navigation_id">19269</span></a>
     </div></li>
     <li><a class="subheader">Questions</a></li>
-    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 1</a></li>
-    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 2</a></li>
-    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 3</a></li>
-    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 4</a></li>
-    <li><a class="waves-effect"><i class="material-icons">assignment</i>Question 5</a></li>
-    <li><div class="divider"></div></li>
+    <li id="navbar_divider"><div class="divider"></div></li>
     <li><a class="waves-effect" href=""><i class="material-icons">send</i>Submit</a></li>
 </ul>
 
 <div class="container">
 
     <div class="row" style="margin-top: 10px">
-        <a href="#" class="btn waves-effect waves-light blue lighten-2 left disabled"><i class="material-icons left">arrow_back_ios</i>Previous Question</a>
-        <a href="#" class="btn waves-effect waves-light blue lighten-2 right"><i class="material-icons left">arrow_forward_ios</i>Next Question</a>
-        <a href="#" class="btn waves-effect waves-light blue lighten-2 right" style="display: none"><i class="material-icons left">send</i>Submit</a>
+        <a id="question_prev" href="javascript:openQuestion(currentQuestion - 1)" class="btn waves-effect waves-light blue lighten-2 left disabled"><i class="material-icons left">arrow_back_ios</i>Previous Question</a>
+        <a id="question_next" href="javascript:openQuestion(currentQuestion + 1)" class="btn waves-effect waves-light blue lighten-2 right"><i class="material-icons left">arrow_forward_ios</i>Next Question</a>
+        <a id="question_submit" href="#" class="btn waves-effect waves-light blue lighten-2 right" style="display: none"><i class="material-icons left">send</i>Submit</a>
     </div>
 
     <div class="row center-align" style="margin-top: 20px">
-        <h4>Question 1</h4>
+        <h4 id="question_title">Question 1</h4>
     </div>
 
     <div class="row" style="margin-top: 20px">
@@ -66,7 +61,7 @@
             <div class="z-depth-1">
                 <div id="answer_%id%_quill"></div>
             </div>
-            <span class="right" style="margin-top: 10px">Words: 0 / 180</span>
+            <span id="answer_%id%_wordlimit" class="right black-text" style="margin-top: 10px">Words: 0 / 180</span>
         </div>
     </template>
 

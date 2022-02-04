@@ -33,4 +33,6 @@ function addClozeAnswer(id) {
         readOnly: true,
         placeholder: 'Cloze'
     });
+    quill.setContents(new Delta(examJson[currentQuestion].answer_types[id].content.pattern));
+    quillInstances.cloze = quill;
 }
