@@ -20,3 +20,13 @@ function addMultipleChoiceAnswerOption(id, text) {
     optionTemplate.innerHTML = optionHTML;
     document.getElementById('answer_' + id + '_container').appendChild(optionTemplate.content.firstChild);
 }
+
+function saveMultipleChoiceAnswer(id) {
+    let selected = {};
+    let counter = 1;
+    for (let input of document.querySelectorAll('[ref = answer_"' + id + '"_option]')){
+        selected[counter] = input.checked;
+        counter ++;
+    }
+    solution[currentQuestion].content = selected;
+}

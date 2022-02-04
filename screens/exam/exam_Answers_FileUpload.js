@@ -9,3 +9,7 @@ function addFileUploadAnswer(id) {
     answerTemplate.innerHTML = answerHTML;
     document.getElementById('answers').appendChild(answerTemplate.content.firstChild);
 }
+
+function saveFileUploadAnswer(id) {
+
+}

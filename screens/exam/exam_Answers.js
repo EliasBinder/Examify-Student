@@ -27,3 +27,17 @@ function addAnswer(id) {
     else if (answer.type == 4)
         addFileUploadAnswer(id);
 }
+
+function saveAnswer(id) {
+    let answer = examJson[currentQuestion].answer_types[id];
+    if (answer.type == 0)
+        saveTextAnswer(id);
+    else if (answer.type == 1)
+        saveClozeAnswer(id);
+    else if (answer.type == 2)
+        saveMultipleChoiceAnswer(id);
+    else if (answer.type == 3)
+        saveAudioRecordingAnswer(id);
+    else if (answer.type == 4)
+        saveFileUploadAnswer(id);
+}

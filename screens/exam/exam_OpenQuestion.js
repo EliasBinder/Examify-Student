@@ -1,5 +1,5 @@
 function openQuestion(id) {
-    //TODO: save current data
+    saveSolution();
 
     clearAttachments();
     clearAnswers();
@@ -29,5 +29,15 @@ function openQuestion(id) {
 
     for (let answer of Object.keys(question.answer_types)){
         addAnswer(answer);
+    }
+}
+
+function saveSolution() {
+    if (!solution.hasOwnProperty(currentQuestion)){
+        solution[currentQuestion] = {};
+    }
+
+    for (let answer of Object.keys(examJson[id].answer_types)){
+        saveAnswer(answer);
     }
 }

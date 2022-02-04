@@ -18,7 +18,7 @@ function addClozeAnswer(id) {
             node.style.fontFamily = 'Helvetica, Arial, sans-serif';
             node.style.textAlign = 'center';
             node.style.fontSize = 'inherit';
-            node.setAttribute('clozeQuill_input', '1');
+            node.setAttribute('clozeQuill_input', id);
             return node;
         }
     }
@@ -34,5 +34,19 @@ function addClozeAnswer(id) {
         placeholder: 'Cloze'
     });
     quill.setContents(new Delta(examJson[currentQuestion].answer_types[id].content.pattern));
-    quillInstances.cloze = quill;
+    if (!quillInstances.hasOwnProperty(currentQuestion))
+        quillInstances[currentQuestion] = {};
+    if (!quillInstances[currentQuestion.hasOwnProperty(id)])
+        quillInstances[currentQuestion][id] = {};
+    quillInstances[currentQuestion][id].cloze = quill;
+}
+
+function saveClozeAnswer(id) {
+    let filled = {};
+    let counter = 1;
+    for (let input of document.querySelectorAll('[clozeQuill_input = "' + id + '"]')){
+        filled[counter] = input.value;
+        counter ++;
+    }
+    solution[currentQuestion].content = filled;
 }

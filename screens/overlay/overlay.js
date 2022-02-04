@@ -14,6 +14,8 @@ let offlineBridge = {}
 
 let holdingDetails = {};
 
+let solution = {};
+
 function render(path, containerID) {
     window.intercom.receive('reqfile', (json) => {
         if (sidenav)

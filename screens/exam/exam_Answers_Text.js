@@ -71,7 +71,18 @@ function addTextAnswer(id) {
         }
     });
 
+    if (!quillInstances.hasOwnProperty(currentQuestion))
+        quillInstances[currentQuestion] = {};
+    if (!quillInstances[currentQuestion.hasOwnProperty(id)])
+        quillInstances[currentQuestion][id] = {};
+    quillInstances[currentQuestion][id].quill = quill;
+
     if (examJson[currentQuestion].answer_types[id].content.wordlimit == -1){
         document.getElementById('answer_' + id + '_wordlimit').style.display = 'none';
     }
+}
+
+
+function saveTextAnswer(id) {
+    solution[currentQuestion].content = quillInstances[currentQuestion][id].quill.getContents().ops;
 }

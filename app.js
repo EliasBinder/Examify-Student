@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain} = require('electron')
+const { app, BrowserWindow, Tray, ipcMain} = require('electron')
 const path = require('path')
 const intercom = require('./intercom')
 
@@ -10,14 +10,16 @@ const createWindow = () => {
         minHeight: 600,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
-        }
+        },
+        icon: path.join(__dirname, 'resources', 'images', 'icon.png')
     })
 
     win.loadFile(path.join(__dirname, 'screens', 'overlay', 'overlay.html'))
 }
 
 app.whenReady().then(() => {
-    createWindow()
+    app.dock.setIcon(path.join(__dirname, 'resources', 'images', 'icon.png'));
+    createWindow();
 })
 
 app.on('window-all-closed', () => {

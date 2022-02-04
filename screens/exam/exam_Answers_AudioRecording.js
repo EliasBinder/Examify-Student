@@ -94,3 +94,7 @@ function deleteAudioRecording(id) {
     mediaRecorder.blobURL = null;
     mediaRecorder.chunks = [];
 }
+
+function saveAudioRecordingAnswer(id) {
+
+}
