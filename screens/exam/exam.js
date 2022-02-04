@@ -32,6 +32,22 @@ function setDomCredentials() {
 }
 setDomCredentials();
 
+function initTimer() {
+    let timer = window.setInterval(function () {
+        let diff = holdingDetails.end - new Date().getTime();
+        if (diff > 0) {
+            let countdownHours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            let countdownMins = Math.floor((diff / (1000 * 60)) % 60);
+            let countdownSecs = Math.floor((diff / 1000) % 60);
+            document.getElementById('exam_timer').innerHTML = '<i class="material-icons left">schedule</i>' + countdownHours + ':' + countdownMins + ':' + countdownSecs
+        }else{
+            //TODO: SUBMIT
+            window.clearInterval(timer);
+        }
+    }, 1000);
+}
+initTimer();
+
 
 function initQuestionQuill() {
     let quill = new Quill('#quill_question', {
