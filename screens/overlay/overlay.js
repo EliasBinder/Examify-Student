@@ -12,6 +12,8 @@ let credentials = {
 
 let offlineBridge = {}
 
+let holdingDetails = {};
+
 function render(path, containerID) {
     window.intercom.receive('reqfile', (json) => {
         if (sidenav)
@@ -28,7 +30,7 @@ function render(path, containerID) {
         'path': path
     });
 }
-render('exam', 'main');
+render('welcome', 'main');
 
 
 let domLoadListenerCache = [];
@@ -67,7 +69,7 @@ function setLoadingOverlay(newstate = false) {
         domLoading.style.display = 'none';
 }
 
-function apiCall(method, content = null, path, inBackground = true, callback) {
+function apiCall(method, content = null, path, inBackground = true, callback, useOfflineScreen = true) {
     if (!inBackground) {
         setLoadingOverlay(true);
     }
@@ -87,14 +89,18 @@ function apiCall(method, content = null, path, inBackground = true, callback) {
             if (!inBackground) {
                 setLoadingOverlay(false);
             }
-            offlineBridge = {
-                'method': method,
-                'content': content,
-                'path': path,
-                'inBackground': inBackground,
-                'callback': callback
-            };
-            render('offline', 'main');
+            if (useOfflineScreen) {
+                offlineBridge = {
+                    'method': method,
+                    'content': content,
+                    'path': path,
+                    'inBackground': inBackground,
+                    'callback': callback
+                };
+                render('offline', 'main');
+            }else{
+                callback(false, {});
+            }
         }
     };
     if (inBackground) {
@@ -104,14 +110,18 @@ function apiCall(method, content = null, path, inBackground = true, callback) {
         if (!inBackground) {
             setLoadingOverlay(false);
         }
-        offlineBridge = {
-            'method': method,
-            'content': content,
-            'path': path,
-            'inBackground': inBackground,
-            'callback': callback
-        };
-        render('offline', 'main');
+        if (useOfflineScreen) {
+            offlineBridge = {
+                'method': method,
+                'content': content,
+                'path': path,
+                'inBackground': inBackground,
+                'callback': callback
+            };
+            render('offline', 'main');
+        }else{
+            callback(false, {});
+        }
     };
     request.open(method, connection.url + path, true);
     if (content != null) {

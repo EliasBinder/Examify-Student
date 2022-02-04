@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper blue lighten-2">
-        <a href="#!" class="brand-logo center">IDB Exam Demo</a>
+        <a id="title" href="#!" class="brand-logo center">IDB Exam Demo</a>
     </div>
 </nav>
 <div class="container center-align">
@@ -12,39 +12,39 @@
         <table>
             <tbody>
                 <tr>
-                    <td>Exam Reference</td>
-                    <td>uhx-5tr</td>
+                    <td>Participation Reference</td>
+                    <td id="table_pr">uhx-5tr</td>
                 </tr>
                 <tr>
                     <td>Name of the Lecturer</td>
-                    <td>Prof. Max Mustermann</td>
+                    <td id="table_lecturer">Prof. Max Mustermann</td>
                 </tr>
                 <tr>
                     <td>Student Name</td>
-                    <td>Elias Binder</td>
+                    <td id="table_name">Elias Binder</td>
                 </tr>
                 <tr>
                     <td>Student ID</td>
-                    <td>19269</td>
+                    <td id="table_id">19269</td>
                 </tr>
                 <tr>
                     <td>Start Time Of The Exam</td>
-                    <td>11:58 pm</td>
+                    <td id="table_start">11:58 pm</td>
                 </tr>
                 <tr>
                     <td>Duration Of The Exam</td>
-                    <td>2 hours</td>
+                    <td id="table_duration">2 hours</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
     <div class="row" style="margin-top: 30px">
-        <a href="#" class="btn waves-effect waves-light blue lighten-2 left"><i class="material-icons left">arrow_back_ios</i>Back</a>
-        <a href="#" class="btn waves-effect waves-light blue lighten-2 right disabled"><i class="material-icons left">play_arrow</i>Start</a>
+        <a href="javascript:render('welcome', 'main')" class="btn waves-effect waves-light blue lighten-2 left"><i class="material-icons left">arrow_back_ios</i>Back</a>
+        <a href="javascript:render('exam', 'main')" id="btn_start" class="btn waves-effect waves-light blue lighten-2 right disabled"><i class="material-icons left">play_arrow</i>Start</a>
     </div>
 
-    <div class="row">
-        <span class="right">Exam starts in 12:13</span>
+    <div class="row" id="table_timer_container" style="display: none">
+        <span class="right" id="table_timer">Exam starts in 12:13</span>
     </div>
 </div>
