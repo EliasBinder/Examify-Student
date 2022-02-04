@@ -4,6 +4,10 @@ function addMultipleChoiceAnswer(id) {
     let answerTemplate = document.createElement('template');
     answerTemplate.innerHTML = answerHTML;
     document.getElementById('answers').appendChild(answerTemplate.content.firstChild);
+
+    for (let option of examJson[currentQuestion].answer_types[id].content.options){
+        addMultipleChoiceAnswerOption(id, option);
+    }
 }
 
 function addMultipleChoiceAnswerOption(id, text) {
